@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CloudQuery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Satisfy|Caveat" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="icon" type="image/png" href="http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Cloud-icon.png" />
+</head>
+
+<body>
+    <div id="mainContainer">
+        <header>
+            <span>
+                <img src="Assets/cloud.png" alt="" srcset=""> 
+                CloudQuery
+                <img src="Assets/cloud.png" alt="" srcset="">         
+            </span>          
+        </header>
+        <div id="homeContent">
+            <p>Accessing your location...</p>
+            <div id="clouds">
+                <div class="cloud x1"></div>
+                <div class="cloud x2"></div>
+                <div class="cloud x3"></div>
+                <div class="cloud x4"></div>
+                <div class="cloud x5"></div>
+            </div>
+        </div>
+        <div id="results">
+            <div id="animationCanvas">
+                <div id="clear">
+                        <div class="theSun">
+                                <div class="ray_box">
+                                    <div class="ray ray1"></div>
+                                    <div class="ray ray2"></div>
+                                    <div class="ray ray3"></div>
+                                    <div class="ray ray4"></div>
+                                    <div class="ray ray5"></div>
+                                    <div class="ray ray6"></div>
+                                    <div class="ray ray7"></div>
+                                    <div class="ray ray8"></div>
+                                    <div class="ray ray9"></div>
+                                    <div class="ray ray10"></div>
+                                </div>
+                            </div>
+                </div>
+                <div id="cloudy">
+                    <main class="container-animation--flexbox">
+    
+                        <i id="animationItem-image--bigCloud" class="animationItem material-icons">cloud</i>
+                        <i id="animationItem-image--smallCloud" class="animationItem material-icons">cloud</i>
+                        
+                    </main>
+                </div>
+                <div id="rainy">
+                    <div class=raincloud>
+                        <div class=cloud_left></div>
+                        <div class=cloud_right></div>
+                    </div>
+                    <div class=rain>
+                        <div class=drop></div>
+                        <div class=drop></div>
+                        <div class=drop></div>
+                        <div class=drop></div>
+                        <div class=drop></div>
+                    </div>
+                    <div class=surface>
+                        <div class=hit></div>
+                        <div class=hit></div>
+                        <div class=hit></div>
+                        <div class=hit></div>
+                        <div class=hit></div>
+                    </div>
+
+                </div>
+                <div id="snow">
+                        <div id="snowcloud">
+                          <div id="five"></div>
+                          <div id="six"></div>
+                          <div id="seven"></div>
+                        </div>
+                         <div id="snowfall">
+                          <ul>
+                            <li id="one">.</li>
+                            <li id="two">.</li>
+                            <li id="three">.</li>
+                            <li id="four">.</li>
+                          </ul>
+                        </div>
+                </div>
+            </div>
+            <div id="details">
+                <span id="location"></span>
+                <span id="weather"></span>
+                <div id="description"></div>
+            </div>
+        </div>
+        <div id="input">
+            <input type="text" name="locationInput" id="locationInput" placeholder="Enter location"><br>
+            <button>Find the weather!</button>
+        </div>
+        <footer>
+            <span>Designed by Rithika Chowta</span>
+           <a href="https://gitlab.com/Chowta/frontend-dev-training/tree/master/weather-app" target="_blank">View code on Gitlab</a>
+            <div>Copyright © 2018 CloudQuery. All rights reserved.</div>
+        </footer>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="script.js"></script>
+</html>
