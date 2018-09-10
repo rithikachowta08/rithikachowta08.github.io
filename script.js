@@ -40,7 +40,7 @@ var WEATHERFINDER = (function() {
     function success(position, url) {
       urlParam =
         url ||
-        "http://api.openweathermap.org/data/2.5/weather?lat=" +
+        "https://api.openweathermap.org/data/2.5/weather?lat=" +
           position.coords.latitude +
           "&lon=" +
           position.coords.longitude +
@@ -73,7 +73,7 @@ var WEATHERFINDER = (function() {
       function callWeather() {
         $("#input").hide();
         query =
-          "http://api.openweathermap.org/data/2.5/weather?q=" +
+          "https://api.openweathermap.org/data/2.5/weather?q=" +
           locationInput.value +
           "&appid=ccb7a356a2bf2fa6d99bf8c4ac2b373a&units=metric";
         success(null, query);
