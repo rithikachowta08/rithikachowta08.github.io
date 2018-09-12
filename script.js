@@ -29,8 +29,58 @@ var WeatherFinder = (function() {
       results: "#results",
       rainyAnimation: "#rainy",
       cloudyAnimation: "#cloudy",
-      clearanimation: "#clear",
+      clearAnimation: "#clear",
       snowyAnimation: "#snow"
+    },
+
+    url: "https://api.openweathermap.org/data/2.5/weather?",
+    appID: "ccb7a356a2bf2fa6d99bf8c4ac2b373a"
+  };
+  var idLookup = private_elements.ids;
+  var render = function(elements) {
+    console.log(elements);
+    for (i = 0; i < elements.length; i++) {
+      elements[i].element.style = elements[i].style;
+    }
+  };
+  var animate = function(weatherCategory) {
+    switch (weatherCategory) {
+      case "Thunderstorm":
+      case "Drizzle":
+      case "Rain":
+        render([
+          {
+            element: $(idLookup.rainyAnimation),
+            style: "display:block"
+          }
+        ]);
+        break;
+      case "Clear":
+        render([
+          {
+            element: $(idLookup.clearAnimation),
+            style: "display:block"
+          }
+        ]);
+        break;
+      case "Clouds":
+      case "Mist":
+      case "Haze":
+        render([
+          {
+            element: $(idLookup.cloudyAnimation),
+            style: "display:block"
+          }
+        ]);
+        break;
+      case "Snow":
+        render([
+          {
+            element: $(idLookup.snowyAnimation),
+            style: "display:block"
+          }
+        ]);
+        break;
     }
   };
 
@@ -47,7 +97,6 @@ var WeatherFinder = (function() {
 
   // if successful make API call
   checkWeather.prototype.success = function(position) {
-  
     var options = {
       url: this.getUrl(position),
       callBackFn: this.callback
@@ -56,20 +105,21 @@ var WeatherFinder = (function() {
   };
 
   // in case user denies access, ask for explicit input
-  checkWeather.prototype.error = function(err) {
-    var locationInput = $(private_elements.ids.locationInput);
-    this.render([
+  checkWeather.prototype.error = function() {
+    var locationInput = $(idLookup.locationInput);
+    var self = this;
+    render([
       {
-        element: $(private_elements.ids.inputContainer),
+        element: $(idLookup.inputContainer),
         style: "display:block;"
       },
-      { element: $(private_elements.ids.homeContainer), style: "display:none;" }
+      { element: $(idLookup.homeContainer), style: "display:none;" }
     ]);
-    $(private_elements.ids.inputBtn).addEventListener("click", callWeather);
+    $(idLookup.inputBtn).addEventListener("click", callWeather.bind(self));
 
-    // adding feature to retrieve results on enter key press
+    // retrieve results on enter key press
     locationInput.addEventListener("keydown", function(event) {
-      if (event.key === "Enter") callWeather.call(this);
+      if (event.key === "Enter") callWeather.call(self);
     });
 
     // clearing placeholder on click
@@ -79,9 +129,9 @@ var WeatherFinder = (function() {
 
     // calls success function with url containing explicit location
     function callWeather() {
-      this.render([
+      render([
         {
-          element: $(private_elements.ids.inputContainer),
+          element: $(idLookup.inputContainer),
           style: "display:none"
         }
       ]);
@@ -89,20 +139,27 @@ var WeatherFinder = (function() {
     }
   };
 
+  // return url for api call
   checkWeather.prototype.getUrl = function(value) {
     if (value.coords) {
       return (
-        "https://api.openweathermap.org/data/2.5/weather?lat=" +
+        private_elements.url +
+        "lat=" +
         value.coords.latitude +
         "&lon=" +
         value.coords.longitude +
-        "&appid=ccb7a356a2bf2fa6d99bf8c4ac2b373a&units=metric"
+        "&appid=" +
+        private_elements.appID +
+        "&units=metric"
       );
     } else {
       return (
-        "https://api.openweathermap.org/data/2.5/weather?q=" +
+        private_elements.url +
+        "q=" +
         value +
-        "&appid=ccb7a356a2bf2fa6d99bf8c4ac2b373a&units=metric"
+        "&appid=" +
+        private_elements.appID +
+        "&units=metric"
       );
     }
   };
@@ -111,31 +168,45 @@ var WeatherFinder = (function() {
   checkWeather.prototype.callback = function() {
     // updating status
     if (this.readyState == XMLHttpRequest.OPENED) {
-      $(private_elements.ids.status).innerHTML = "Getting weather data...";
+      $(idLookup.status).innerHTML = "Getting weather data...";
     }
 
-    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-       var data = JSON.parse(this.responseText),
-        firstletter = data.weather[0].description.charAt(0).toUpperCase(),
-        weatherCategory = data.weather[0].main;
-        console.log(data);
-      this.render([
+    if(this.readyState === XMLHttpRequest.DONE && this.status === 404 || this.status === 400){
+      $(idLookup.status).innerHTML = "Sorry! Location not found";
+      render([
         {
-          element: $(private_elements.ids.homeContainer),
-          style: "display:none"
+          element: $(idLookup.status),
+          style: "display:block"
         },
         {
-          element: $(private_elements.ids.results),
+          element: $(idLookup.homeContainer),
           style: "display:block"
         }
       ]);
-      this.animate.call(this, weatherCategory);
-      $(private_elements.ids.city).innerHTML = data.name;
-      $(weather).innerHTML = data.weather[0].description.replaceAt(
+      
+    }
+
+    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+      var data = JSON.parse(this.responseText),
+        firstletter = data.weather[0].description.charAt(0).toUpperCase(),
+        weatherCategory = data.weather[0].main;
+      render([
+        {
+          element: $(idLookup.homeContainer),
+          style: "display:none"
+        },
+        {
+          element: $(idLookup.results),
+          style: "display:block"
+        }
+      ]);
+      animate(weatherCategory);
+      $(idLookup.city).innerHTML = data.name;
+      $(idLookup.weather).innerHTML = data.weather[0].description.replaceAt(
         0,
         firstletter
       );
-      $(private_elements.ids.description).innerHTML =
+      $(idLookup.description).innerHTML =
         " <br> Temperature: " +
         data.main.temp +
         " °C<br> Humidity: " +
@@ -143,55 +214,6 @@ var WeatherFinder = (function() {
         "%<br> Wind speed: " +
         data.wind.speed +
         " m/sec";
-    }
-    }
-
-  // selects animation according to weather category
-  checkWeather.prototype.animate = function(weatherCategory) {
-    switch (weatherCategory) {
-      case "Thunderstorm":
-      case "Drizzle":
-      case "Rain":
-        this.render([
-          {
-            element: $(private_elements.ids.rainyAnimation),
-            style: "display:block"
-          }
-        ]);
-        break;
-      case "Clear":
-        this.render([
-          {
-            element: $(private_elements.ids.clearAnimation),
-            style: "display:block"
-          }
-        ]);
-        break;
-      case "Clouds":
-      case "Mist":
-      case "Haze":
-        this.render([
-          {
-            element: $(private_elements.ids.cloudyAnimation),
-            style: "display:block"
-          }
-        ]);
-        break;
-      case "Snow":
-        this.render([
-          {
-            element: $(private_elements.ids.snowyAnimation),
-            style: "display:block"
-          }
-        ]);
-        break;
-    }
-  };
-  // utility function to render elements
-  checkWeather.prototype.render = function(elements) {
-    console.log(elements);
-    for (i = 0; i < elements.length; i++) {
-      elements[i].element.style = elements[i].style;
     }
   };
 

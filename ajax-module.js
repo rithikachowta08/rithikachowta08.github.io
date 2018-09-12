@@ -13,8 +13,7 @@ var CALLAPI = (function() {
       requestObj.onreadystatechange = callBackFn.bind(requestObj);
       requestObj.open("GET", URL);
       requestObj.send();
-    }
-  
+    }  
     return {
       call: call
     };
