@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100%;
+  color: rgb(var(--foreground-rgb));
+}
+
+article {
+  background: linear-gradient(rgba(0, 0, 0, 0.87), rgba(0, 0, 0, 0.87)),
+    url("/images/bg-3.jpg");
+  background-size: cover;
+}
+
+@layer base {
+  html {
+    font-size: 12px;
+  }
+
+  @screen md {
+    html {
+      font-size: 14px;
+    }
+  }
+
+  @screen lg {
+    html {
+      font-size: 16px;
+    }
+  }
+
+  @screen xl {
+    html {
+      font-size: 18px;
+    }
+  }
+}
