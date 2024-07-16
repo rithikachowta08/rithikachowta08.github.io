@@ -1,5 +1,7 @@
 import Description from "@/components/About/Description";
 
+type About = {};
+
 const About = () => {
   return (
     <article id="about">
