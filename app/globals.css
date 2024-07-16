@@ -24,7 +24,7 @@ body {
 
 article {
   background: linear-gradient(rgba(0, 0, 0, 0.87), rgba(0, 0, 0, 0.87)),
-    url("/images/bg-3.jpg");
+    url("/images/bg.webp");
   background-size: cover;
 }
 
