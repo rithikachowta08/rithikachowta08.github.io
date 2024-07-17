@@ -1,4 +1,7 @@
 import classes from "../styles.module.css";
+import LogicalIcon from "@/public/icons/logical.svg";
+import DetailIcon from "@/public/icons/detail.svg";
+import InnovativeIcon from "@/public/icons/innovative.svg";
 
 function Description() {
   return (
@@ -31,6 +34,26 @@ function Description() {
         self-confessed health nut 🏋🏻‍♀️. Painting 🎨 and reading 📖 are 2 more of
         my interests that I find joy in whenever I can 🌈.
       </p>
+      <div className="hidden justify-evenly mt-12 lg:flex">
+        <div
+          className={`${classes.illustration} flex flex-col items-center gap-4`}
+        >
+          <LogicalIcon />
+          <div>Analytical thinker</div>
+        </div>
+        <div
+          className={`${classes.illustration} flex flex-col items-center gap-4`}
+        >
+          <DetailIcon />
+          <div>Attention to detail</div>
+        </div>
+        <div
+          className={`${classes.illustration} flex flex-col items-center gap-4`}
+        >
+          <InnovativeIcon />
+          <div>Innovative</div>
+        </div>
+      </div>
     </>
   );
 }

@@ -1,5 +1,6 @@
 import About from "@/pages/About";
 import Home from "@/pages/Home";
+import Contact from "@/pages/Contact";
 
 export default function Main() {
   return (
@@ -12,6 +13,7 @@ export default function Main() {
       ></img>
       <Home />
       <About />
+      <Contact />
     </main>
   );
 }

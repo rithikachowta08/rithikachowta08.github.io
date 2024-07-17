@@ -9,7 +9,7 @@ const Intro = () => {
       >
         Hi! I&apos;m Rithika
       </h2>
-      <p className="text-xl lg:text-2xl leading-10">
+      <p className="text-xl leading-10 lg:text-2xl lg:leading-10">
         A full stack developer with over 5 years experience. Tech is what I do
         best. <br></br>
         <Link className={`${classes.link} ${classes.invert}`} href="#about">
