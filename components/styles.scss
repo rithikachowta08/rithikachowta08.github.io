@@ -1,0 +1,203 @@
+/* Link text styles */
+
+$color-primary: #4af626;
+$color-secondary: #fff;
+$color-background: #000;
+$timeline-item-count: 3;
+$timeline-item-height: 15rem;
+
+.link {
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+}
+
+.link::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background-color: $color-primary;
+  bottom: -2px;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.link:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.link.link-invert {
+  color: $color-primary;
+}
+
+.link.link-invert::before {
+  background-color: white;
+}
+
+/* Headline styles */
+
+.headline {
+  position: relative;
+  padding-left: 20px;
+}
+
+.headline::before {
+  content: "";
+  height: 100%;
+  width: 5px;
+  left: 0;
+  position: absolute;
+  background-color: white;
+}
+
+/* Profile image styles */
+
+.profile {
+  z-index: 1;
+}
+
+@media (min-width: 1024px) {
+  .profile {
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 85%);
+  }
+}
+
+/* Animated text styles */
+
+.animated-text {
+  width: 16ch;
+  animation: typing 2.5s steps(16), blink 1s infinite step-end;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 1ch solid $color-primary;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Illustration styles */
+
+.illustration:hover svg {
+  filter: drop-shadow(5px 5px 16px #888);
+  transition: all 0.2s ease-in;
+}
+
+.illustration:hover div {
+  color: #fff;
+  text-shadow: 0px 0px 20px #fff;
+  transition: all 0.2s ease-in;
+}
+
+ol,
+li {
+  margin: 0;
+  padding: 0;
+  color: $color-secondary;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+
+  &:after {
+    content: "";
+    display: block;
+    width: 3px;
+    height: calc($timeline-item-height * ($timeline-item-count - 1));
+    background-color: $color-primary;
+    position: absolute;
+  }
+
+  &.animate:after {
+    animation: fill-timeline 2s;
+  }
+}
+
+.timeline-element {
+  list-style-type: none;
+  position: relative;
+  cursor: pointer;
+  height: $timeline-item-height;
+
+  &.animate:after {
+    animation-name: fill-circle;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    border-radius: 50%;
+    background-color: $color-background;
+    border: 2px solid $color-primary;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    left: 0;
+    transform: translateX(calc(-50% + 1px));
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+
+  @for $i from 1 through 3 {
+    &:nth-child(#{$i}):after {
+      animation-delay: if($i == 1, 0s, $i * 0.4s);
+    }
+  }
+
+  span {
+    position: absolute;
+    left: 2rem;
+    top: 0;
+    transform: translateY(-1.4rem);
+    display: inline-block;
+    text-align: center;
+    width: 5rem;
+    text-align: left;
+
+    @media (min-width: 1024px) {
+      width: 15rem;
+    }
+  }
+
+  &:nth-child(2) span {
+    transform: translate(-100%, -1.4rem);
+    text-align: right;
+    left: -2rem;
+  }
+}
+
+@keyframes fill-timeline {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: calc($timeline-item-height * ($timeline-item-count - 1));
+  }
+}
+
+@keyframes fill-circle {
+  0% {
+    background-color: $color-background;
+  }
+  100% {
+    background-color: $color-primary;
+  }
+}

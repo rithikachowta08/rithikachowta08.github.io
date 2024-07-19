@@ -1,5 +1,5 @@
 import Image from "next/image";
-import classes from "../styles.module.css";
+import "../styles.scss";
 
 function ProfileImage() {
   return (
@@ -7,7 +7,7 @@ function ProfileImage() {
       <picture>
         <source srcSet="/images/profile_1x.jpg" media="(max-width: 1024px)" />
         <Image
-          className={classes.profile}
+          className="profile"
           priority
           src="/images/profile_2x.jpg"
           layout="fill"

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import classes from "../styles.module.css";
+import "../styles.scss";
 
 type NavItemType = {
   label: string;
@@ -7,16 +7,19 @@ type NavItemType = {
   href: string;
 };
 
-function NavItem({ label, type, href }: NavItemType) {
-  return (
-    <Link
-      className={classes.link}
-      href={`#${href}`}
-      download={type === "DOWNLOAD"}
-    >
+const NavItem = ({ label, type, href }: NavItemType) => {
+  const scrollToElem = (id) =>
+    document.getElementById(id)?.scrollIntoView(true);
+
+  return type === "DOWNLOAD" ? (
+    <a download className="link" href={href}>
+      {label}
+    </a>
+  ) : (
+    <Link className="link" onClick={() => scrollToElem(href)} href="">
       {label}
     </Link>
   );
-}
+};
 
 export default NavItem;

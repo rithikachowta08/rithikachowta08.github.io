@@ -1,4 +1,4 @@
-import classes from "../styles.module.css";
+import "../styles.scss";
 import LogicalIcon from "@/public/icons/logical.svg";
 import DetailIcon from "@/public/icons/detail.svg";
 import InnovativeIcon from "@/public/icons/innovative.svg";
@@ -6,7 +6,7 @@ import InnovativeIcon from "@/public/icons/innovative.svg";
 function Description() {
   return (
     <>
-      <h2 className={`${classes.headline} text-2xl text-terminal-green mb-10`}>
+      <h2 className={`headline text-2xl text-terminal-green mb-10`}>
         Passionate and self-driven senior software engineer with experience
         across multiple stacks, sound knowledge of web performance,
         optimization, modern frameworks and accessibility.
@@ -14,19 +14,18 @@ function Description() {
       <p>
         I am a CSE graduate from the batch of 2014-18. I started out as a
         frontend dev working with ReactJS and Redux. Over the years, I&apos;ve
-        worked with multiple technologies including and not limited to{" "}
+        worked with multiple technologies including{" "}
         <strong>NextJS, NodeJS, Flask, MongoDB and GoLang</strong>. My strength
         lies in frontend with over 5 years experience, followed by backend
-        experience of 1 year 🎯. Adding backend skills to my arsenal has been
-        transformational in my understanding of how the web works ✨.
+        experience of 1 year 🎯.
       </p>
       <p>
         I have also worked on integrations and deployments of cutting edge LLMs
-        like <strong>GPT-4o, Gemini and Phi-3</strong>, which was an altogether
-        new and explorative domain for me 🧠. I have an obsessive need for
-        perfection that works against me at times but I thoroughly enjoy
-        discovering new tech and its challenges. Surmounting those challenges
-        often bring forth new learning that I can apply in more than one domain.
+        like <strong>GPT-4o, Gemini and Phi-3</strong>, which was a new and
+        explorative domain for me 🧠. I have an obsessive need for perfection
+        and I thoroughly enjoy discovering new tech and its challenges.
+        Surmounting those challenges often yields valuable insights that I can
+        apply in more than one domain.
       </p>
       <p>
         Outside of work, I love to spend my time baking sweet treats 🍰, both
@@ -35,23 +34,17 @@ function Description() {
         my interests that I find joy in whenever I can 🌈.
       </p>
       <div className="hidden justify-evenly mt-12 lg:flex">
-        <div
-          className={`${classes.illustration} flex flex-col items-center gap-4`}
-        >
+        <div className={`illustration flex flex-col items-center gap-4`}>
           <LogicalIcon />
           <div>Analytical thinker</div>
         </div>
-        <div
-          className={`${classes.illustration} flex flex-col items-center gap-4`}
-        >
+        <div className={`illustration flex flex-col items-center gap-4`}>
           <DetailIcon />
           <div>Attention to detail</div>
         </div>
-        <div
-          className={`${classes.illustration} flex flex-col items-center gap-4`}
-        >
+        <div className={`illustration flex flex-col items-center gap-4`}>
           <InnovativeIcon />
-          <div>Innovative</div>
+          <div>Strategic innovator</div>
         </div>
       </div>
     </>
