@@ -6,7 +6,9 @@ import InnovativeIcon from "@/public/icons/innovative.svg";
 function Description() {
   return (
     <>
-      <h2 className={`headline text-2xl text-terminal-green mb-10`}>
+      <h2
+        className={`relative pl-5 before:content-[''] before:h-full before:w-1 before:absolute before:left-0 before:bg-white text-2xl text-terminal-green mb-10`}
+      >
         Passionate and self-driven senior software engineer with experience
         across multiple stacks, sound knowledge of web performance,
         optimization, modern frameworks and accessibility.

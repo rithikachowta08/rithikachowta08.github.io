@@ -7,7 +7,6 @@ import Skills from "@/pages/Skills";
 import Projects from "@/pages/Projects";
 import ReactFullpage from "@fullpage/react-fullpage";
 import ArrowUpIcon from "@/public/icons/arrow-up.svg";
-import Image from "next/image";
 
 const sections = [
   <Home />,

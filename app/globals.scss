@@ -55,6 +55,12 @@ body {
   }
 }
 
+@layer utilities {
+  .clip-path-trapezium {
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 85%);
+  }
+}
+
 .fp-watermark {
   display: none;
 }

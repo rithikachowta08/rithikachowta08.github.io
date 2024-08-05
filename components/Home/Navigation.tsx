@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import NavItem from "./NavItem";
 import MenuIcon from "@/public/icons/menu.svg";
 

@@ -2,16 +2,7 @@ $color-primary: #4af626;
 $color-secondary: #fff;
 $color-background: #000;
 
-.profile {
-  z-index: 1;
-}
-
-@media (min-width: 1024px) {
-  .profile {
-    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 85%);
-  }
-}
-
+// Animated Typed Intro Text
 .animated-text {
   width: 16ch;
   animation: typing 2.5s steps(16), blink 1s infinite step-end;
@@ -32,6 +23,7 @@ $color-background: #000;
   }
 }
 
+// Link styling
 .link {
   position: relative;
   text-decoration: none;

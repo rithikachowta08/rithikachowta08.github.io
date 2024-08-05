@@ -20,9 +20,9 @@ const Timeline = () => {
     observer.observe(timeline);
   }, []);
   return (
-    <ol className="timeline animate">
+    <ol className="timeline animate m-0 p-0">
       {workHistory.map((item) => (
-        <li className="timeline-element" key={item.name}>
+        <li className="timeline-element m-0 p-0" key={item.name}>
           <span>
             <div className="flex flex-col text-sm">
               <div>{item.name}</div>

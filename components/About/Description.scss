@@ -1,19 +1,5 @@
 @import "../variables.scss";
 
-.headline {
-  position: relative;
-  padding-left: 20px;
-}
-
-.headline::before {
-  content: "";
-  height: 100%;
-  width: 5px;
-  left: 0;
-  position: absolute;
-  background-color: $color-secondary;
-}
-
 .illustration:hover svg {
   filter: drop-shadow(5px 5px 16px #888);
   transition: all 0.2s ease-in;

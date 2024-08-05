@@ -7,7 +7,7 @@ function ProfileImage() {
       <picture>
         <source srcSet="/images/profile_1x.jpg" media="(max-width: 1024px)" />
         <Image
-          className="profile"
+          className="profile z-[1] lg:clip-path-trapezium"
           priority
           src="/images/profile_2x.jpg"
           layout="fill"

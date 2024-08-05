@@ -7,7 +7,7 @@
 
 .y-axis {
   width: 1px;
-  height: 600px;
+  height: $graph-y-axis-length;
   background-color: $color-secondary;
   position: relative;
   &:before {
@@ -25,7 +25,7 @@
 }
 
 .x-axis {
-  width: 900px;
+  width: $graph-x-axis-length;
   height: 1px;
   background-color: $color-secondary;
   align-self: flex-end;

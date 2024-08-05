@@ -1,12 +1,5 @@
 @import "../variables.scss";
 
-ol,
-li {
-  margin: 0;
-  padding: 0;
-  color: $color-secondary;
-}
-
 .timeline {
   display: flex;
   flex-direction: column;
