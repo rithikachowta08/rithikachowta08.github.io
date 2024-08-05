@@ -58,7 +58,7 @@ const Contact = () => {
         <InstaIcon />
         instagram.com/rithikachowta
       </Link>
-      <div className="text-xs absolute bottom-4 right-4">
+      <div className="text-xs absolute bottom-4">
         Made with ❤️ by Rithika Chowta ©{" "}
       </div>
     </div>

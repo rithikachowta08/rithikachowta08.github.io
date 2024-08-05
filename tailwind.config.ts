@@ -17,6 +17,9 @@ const config: Config = {
         lg: "18px",
         xl: "20px",
       },
+      rotate: {
+        "-45": "-45deg",
+      },
     },
   },
   plugins: [],

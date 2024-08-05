@@ -10,7 +10,11 @@ const Intro = () => {
       <p className="text-xl leading-10 lg:text-2xl lg:leading-10">
         A full stack developer with over 5 years experience. Tech is what I do
         best. <br></br>
-        <Link className={`link link-invert`} href="#about">
+        <Link
+          className={`link link-invert`}
+          href=""
+          onClick={() => window.fullpage_api.moveTo("about")}
+        >
           Read on
         </Link>{" "}
         to know more about me 👩🏻‍💻

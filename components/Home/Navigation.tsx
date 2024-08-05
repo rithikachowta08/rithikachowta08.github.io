@@ -1,5 +1,12 @@
+import { useEffect, useRef } from "react";
 import NavItem from "./NavItem";
 import MenuIcon from "@/public/icons/menu.svg";
+
+declare global {
+  interface Window {
+    fullpage_api: any;
+  }
+}
 
 const navItems = [
   { label: "Home", type: "NAV", href: "home" },
@@ -21,11 +28,11 @@ const Navigation = () => {
             label={item.label}
             type={item.type}
             href={item.href}
-          ></NavItem>
+          />
         ))}
       </div>
       <div className="lg:hidden">
-        <MenuIcon></MenuIcon>
+        <MenuIcon />
       </div>
     </nav>
   );

@@ -14,7 +14,6 @@
 
 html {
   height: 100%;
-  scroll-behavior: smooth;
   background-color: #000;
 }
 
@@ -58,4 +57,9 @@ body {
 
 .fp-watermark {
   display: none;
+}
+
+.section .fp-slides {
+  height: 80vh;
+  width: 80vw;
 }

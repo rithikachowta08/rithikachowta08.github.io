@@ -4,44 +4,43 @@ import Home from "@/pages/Home";
 import Contact from "@/pages/Contact";
 import Work from "@/pages/Work";
 import Skills from "@/pages/Skills";
+import Projects from "@/pages/Projects";
 import ReactFullpage from "@fullpage/react-fullpage";
+import ArrowUpIcon from "@/public/icons/arrow-up.svg";
+import Image from "next/image";
 
 const sections = [
-  {
-    component: <Home />,
-    id: "home",
-  },
-  {
-    component: <About />,
-    id: "about",
-  },
-  {
-    component: <Work />,
-    id: "work",
-  },
-  {
-    component: <Skills />,
-    id: "skills",
-  },
-  {
-    component: <Contact />,
-    id: "contact",
-  },
+  <Home />,
+  <About />,
+  <Work />,
+  <Skills />,
+  <Projects />,
+  <Contact />,
 ];
 
 const Index = () => {
   return (
     <main className="min-h-screen flex flex-col">
       <ReactFullpage
+        anchors={["home", "about", "work", "skills", "projects", "contact"]}
         credits={{ enabled: false }}
         scrollingSpeed={900}
         fitToSection
         fadingEffect
-        render={() => (
+        slideSelector=".fullpage-slide"
+        render={(fu) => (
           <ReactFullpage.Wrapper>
             {sections.map((section, idx) => (
-              <div key={idx} id={section.id} className="section">
-                {section.component}
+              <div key={idx} className="section">
+                {section}
+                {idx !== 0 ? (
+                  <div
+                    className="hidden absolute bottom-4 right-4 border border-white rounded-full p-2 lg:block cursor-pointer"
+                    onClick={() => window.fullpage_api.moveTo("home")}
+                  >
+                    <ArrowUpIcon />
+                  </div>
+                ) : null}
               </div>
             ))}
           </ReactFullpage.Wrapper>
