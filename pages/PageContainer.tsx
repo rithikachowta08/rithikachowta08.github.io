@@ -4,6 +4,7 @@ import Home from "@/pages/Home";
 import Contact from "@/pages/Contact";
 import Work from "@/pages/Work";
 import Skills from "@/pages/Skills";
+import ReactFullpage from "@fullpage/react-fullpage";
 
 const sections = [
   {
@@ -30,17 +31,22 @@ const sections = [
 
 const Index = () => {
   return (
-    <main className="min-h-screen flex flex-col overflow-x-hidden">
-      {sections.map((section, idx) => (
-        <article key={idx} className="relative" id={section.id}>
-          {Array(80)
-            .fill(null)
-            .map((_, idx) => (
-              <div key={`firefly_${idx}`} className="firefly"></div>
+    <main className="min-h-screen flex flex-col">
+      <ReactFullpage
+        credits={{ enabled: false }}
+        scrollingSpeed={900}
+        fitToSection
+        fadingEffect
+        render={() => (
+          <ReactFullpage.Wrapper>
+            {sections.map((section, idx) => (
+              <div key={idx} id={section.id} className="section">
+                {section.component}
+              </div>
             ))}
-          {section.component}
-        </article>
-      ))}
+          </ReactFullpage.Wrapper>
+        )}
+      />
     </main>
   );
 };

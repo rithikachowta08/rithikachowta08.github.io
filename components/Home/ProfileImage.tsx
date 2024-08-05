@@ -1,5 +1,5 @@
 import Image from "next/image";
-import "../styles.scss";
+import "./Home.scss";
 
 function ProfileImage() {
   return (

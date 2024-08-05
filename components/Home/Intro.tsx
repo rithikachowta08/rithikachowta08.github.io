@@ -1,4 +1,4 @@
-import "../styles.scss";
+import "./Home.scss";
 import Link from "next/link";
 
 const Intro = () => {

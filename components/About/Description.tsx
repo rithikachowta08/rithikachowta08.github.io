@@ -1,4 +1,4 @@
-import "../styles.scss";
+import "./Description.scss";
 import LogicalIcon from "@/public/icons/logical.svg";
 import DetailIcon from "@/public/icons/detail.svg";
 import InnovativeIcon from "@/public/icons/innovative.svg";

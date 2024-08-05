@@ -1,107 +1,4 @@
-/* Link text styles */
-
-$color-primary: #4af626;
-$color-secondary: #fff;
-$color-background: #000;
-$timeline-item-count: 3;
-$timeline-item-height: 15rem;
-
-.link {
-  position: relative;
-  text-decoration: none;
-  cursor: pointer;
-  color: white;
-}
-
-.link::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  border-radius: 2px;
-  background-color: $color-primary;
-  bottom: -2px;
-  left: 0;
-  transform-origin: right;
-  transform: scaleX(0);
-  transition: transform 0.3s ease-in-out;
-}
-
-.link:hover::before {
-  transform-origin: left;
-  transform: scaleX(1);
-}
-
-.link.link-invert {
-  color: $color-primary;
-}
-
-.link.link-invert::before {
-  background-color: white;
-}
-
-/* Headline styles */
-
-.headline {
-  position: relative;
-  padding-left: 20px;
-}
-
-.headline::before {
-  content: "";
-  height: 100%;
-  width: 5px;
-  left: 0;
-  position: absolute;
-  background-color: white;
-}
-
-/* Profile image styles */
-
-.profile {
-  z-index: 1;
-}
-
-@media (min-width: 1024px) {
-  .profile {
-    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 85%);
-  }
-}
-
-/* Animated text styles */
-
-.animated-text {
-  width: 16ch;
-  animation: typing 2.5s steps(16), blink 1s infinite step-end;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 1ch solid $color-primary;
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-}
-
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
-}
-
-/* Illustration styles */
-
-.illustration:hover svg {
-  filter: drop-shadow(5px 5px 16px #888);
-  transition: all 0.2s ease-in;
-}
-
-.illustration:hover div {
-  color: #fff;
-  text-shadow: 0px 0px 20px #fff;
-  transition: all 0.2s ease-in;
-}
+@import "../variables.scss";
 
 ol,
 li {
@@ -135,6 +32,10 @@ li {
   position: relative;
   cursor: pointer;
   height: $timeline-item-height;
+
+  &:last-child {
+    height: 0;
+  }
 
   &.animate:after {
     animation-name: fill-circle;

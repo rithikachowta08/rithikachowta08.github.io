@@ -1,5 +1,5 @@
 import Link from "next/link";
-import "../styles.scss";
+import "./Home.scss";
 
 type NavItemType = {
   label: string;

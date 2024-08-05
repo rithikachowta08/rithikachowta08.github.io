@@ -1,4 +1,5 @@
-import "../styles.scss";
+import "./Timeline.scss";
+import { useEffect } from "react";
 
 const workHistory = [
   { name: "YML", title: "Software Engineer", year: "2018-19" },
@@ -7,6 +8,17 @@ const workHistory = [
 ];
 
 const Timeline = () => {
+  useEffect(() => {
+    const timeline = document.querySelector(".timeline") as Element;
+    const timelineElements = document.querySelectorAll(".timeline-element");
+    const observer = new IntersectionObserver((entries) => {
+      timeline.classList.toggle("animate", entries[0].isIntersecting);
+      Array.from(timelineElements).forEach((timelineElement) =>
+        timelineElement.classList.toggle("animate", entries[0].isIntersecting)
+      );
+    });
+    observer.observe(timeline);
+  }, []);
   return (
     <ol className="timeline animate">
       {workHistory.map((item) => (
