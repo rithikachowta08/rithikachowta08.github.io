@@ -1,5 +1,8 @@
+import { useState } from "react";
 import NavItem from "./NavItem";
-import MenuIcon from "@/public/icons/menu.svg";
+import MenuCollapsedIcon from "@/public/icons/menu-collapsed.svg";
+import MenuExpandedIcon from "@/public/icons/menu-expanded.svg";
+import Menu from "./Menu";
 
 declare global {
   interface Window {
@@ -18,6 +21,7 @@ const navItems = [
 ];
 
 const Navigation = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <nav className="order-1 lg:order-2">
       <div className="hidden lg:flex gap-8">
@@ -27,11 +31,27 @@ const Navigation = () => {
             label={item.label}
             type={item.type}
             href={item.href}
+            hoverStyle
           />
         ))}
       </div>
       <div className="lg:hidden">
-        <MenuIcon />
+        <Menu
+          items={navItems}
+          isOpen={isMenuOpen}
+          onNavigate={() => setIsMenuOpen(false)}
+        />
+        {isMenuOpen ? (
+          <MenuExpandedIcon
+            className="relative z-[3]"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          />
+        ) : (
+          <MenuCollapsedIcon
+            className="relative z-[3]"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          />
+        )}
       </div>
     </nav>
   );

@@ -5,17 +5,35 @@ type NavItemType = {
   label: string;
   type: string;
   href: string;
+  className?: string;
+  hoverStyle: boolean;
+  onNavigate?: () => void;
 };
 
-const NavItem = ({ label, type, href }: NavItemType) => {
+const NavItem = ({
+  className,
+  label,
+  type,
+  href,
+  onNavigate,
+  hoverStyle = true,
+}: NavItemType) => {
   return type === "DOWNLOAD" ? (
-    <a download className="link" href={href}>
+    <a
+      download
+      className={`${className} link ${hoverStyle ? "hover-styled" : ""}`}
+      href={href}
+      onClick={() => onNavigate?.()}
+    >
       {label}
     </a>
   ) : (
     <Link
-      className="link"
-      onClick={() => window.fullpage_api.moveTo(href)}
+      className={`${className} link ${hoverStyle ? "hover-styled" : ""}`}
+      onClick={() => {
+        window.fullpage_api.moveTo(href);
+        onNavigate?.();
+      }}
       href=""
     >
       {label}

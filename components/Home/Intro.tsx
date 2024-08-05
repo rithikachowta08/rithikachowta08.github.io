@@ -11,7 +11,7 @@ const Intro = () => {
         A full stack developer with over 5 years experience. Tech is what I do
         best. <br></br>
         <Link
-          className={`link link-invert`}
+          className={`link hover-styled link-invert`}
           href=""
           onClick={() => window.fullpage_api.moveTo("about")}
         >
