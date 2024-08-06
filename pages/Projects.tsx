@@ -7,15 +7,21 @@ const projects = [
       "Simple barebones app for finding the weather at your location. You can either allow the browser to detect location or the location can be manually entered.",
     techStack: ["JavaScript", "HTML", "CSS"],
     url: "https://splendid-weather.netlify.app/",
+    githubUrl: "https://github.com/rithikachowta08/weather-app",
     screenshot: "/images/weather/weather_3.png",
   },
   {
     name: "Realtime Chat",
     description:
-      "Reusable and configurable component for one-on-one chat, built by leveraging Firebase realtime database for storing messages. It provides a chat component that can be configured to use any Firebase app as the backend. The module is published on NPM registry with 2k+ downloads",
+      "Reusable and configurable component for one-on-one chat, built by leveraging Firebase realtime database for storing messages. It provides a chat component that can be configured to use any Firebase app as the backend. The module is published on NPM registry.",
     techStack: ["ReactJS", "Sass", "Redux Saga"],
+    githubUrl: "https://github.com/rithikachowta08/react-chat",
     screenshot: "/images/chat/chat_1.png",
-    url: "https://react-rtdb-chat.netlify.app/",
+    url: "https://qwymgy-5173.csb.app/",
+    extraLink: {
+      url: "https://www.npmjs.com/package/@rithikachowta08/react-chat",
+      text: "View NPM package",
+    },
   },
   {
     name: "Hangman Game",
@@ -23,6 +29,7 @@ const projects = [
       "A cute little hangman game with a GUI built using Python tkinter module",
     techStack: ["Python", "Tkinter"],
     url: "",
+    githubUrl: "https://github.com/rithikachowta08/python-hangman-game",
     screenshot: "/images/hangman/hangman_1.png",
   },
   {

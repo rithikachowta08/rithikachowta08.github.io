@@ -1,4 +1,3 @@
-import Link from "next/link";
 import MailIcon from "@/public/icons/mail.svg";
 import GithubIcon from "@/public/icons/github.svg";
 import InstaIcon from "@/public/icons/insta.svg";
