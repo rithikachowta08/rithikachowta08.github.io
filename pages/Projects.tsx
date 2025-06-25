@@ -3,8 +3,7 @@ import ProjectCard from "@/components/Projects/ProjectCard";
 const projects = [
   {
     name: "CloudQuery",
-    description:
-      "Simple barebones app for finding the weather at your location. You can either allow the browser to detect location or the location can be manually entered.",
+    description: "Simple barebones app for finding the weather at your location. You can either allow the browser to detect location or the location can be manually entered.",
     techStack: ["JavaScript", "HTML", "CSS"],
     url: "https://splendid-weather.netlify.app/",
     githubUrl: "https://github.com/rithikachowta08/weather-app",
@@ -17,7 +16,7 @@ const projects = [
     techStack: ["ReactJS", "Sass", "Redux Saga"],
     githubUrl: "https://github.com/rithikachowta08/react-chat",
     screenshot: "/images/chat/chat_1.png",
-    url: "https://qwymgy-5173.csb.app/",
+    url: "https://neon-horse-6efae9.netlify.app/",
     extraLink: {
       url: "https://www.npmjs.com/package/@rithikachowta08/react-chat",
       text: "View NPM package",
@@ -25,8 +24,7 @@ const projects = [
   },
   {
     name: "Hangman Game",
-    description:
-      "A cute little hangman game with a GUI built using Python tkinter module",
+    description: "A cute little hangman game with a GUI built using Python tkinter module",
     techStack: ["Python", "Tkinter"],
     url: "",
     githubUrl: "https://github.com/rithikachowta08/python-hangman-game",
@@ -34,8 +32,7 @@ const projects = [
   },
   {
     name: "GymBuddy",
-    description:
-      "All in one workout assistant for personalised workout routines, smart instructions and calorie tracker",
+    description: "All in one workout assistant for personalised workout routines, smart instructions and calorie tracker",
     status: "COMING_SOON",
   },
 ];
