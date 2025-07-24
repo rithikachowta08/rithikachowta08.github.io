@@ -6,7 +6,6 @@ function ProfileImage() {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleImageLoad = () => {
-    console.log("here");
     setImageLoaded(true);
   };
 
