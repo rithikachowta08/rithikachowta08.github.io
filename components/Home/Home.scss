@@ -5,7 +5,7 @@ $color-background: #000;
 // Animated Typed Intro Text
 .animated-text {
   width: 16ch;
-  animation: typing 2.5s steps(16), blink 1s infinite step-end;
+  animation: typing 1.5s steps(16), blink 1s infinite step-end;
   white-space: nowrap;
   overflow: hidden;
   border-right: 1ch solid $color-primary;

@@ -15,10 +15,11 @@ function ProfileImage() {
         <source srcSet="/images/profile_1x.jpg" media="(max-width: 1024px)" />
         <Image
           className={`profile z-[1] lg:clip-path-trapezium${imageLoaded ? " visible" : ""}`}
-          onLoadingComplete={handleImageLoad}
+          onLoad={handleImageLoad}
           priority
           src="/images/profile_2x.jpg"
-          layout="fill"
+          width={2251}
+          height={2251}
           alt="Rithika - Profile Image"
         ></Image>
       </picture>

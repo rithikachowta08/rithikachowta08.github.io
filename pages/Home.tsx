@@ -5,7 +5,7 @@ import ProfileImage from "@/components/Home/ProfileImage";
 
 const Home = () => {
   return (
-    <div className="py-12 flex flex-col gap-4 min-h-screen w-[80%] md:w-[70%] self-center lg:w-full lg:px-12 m-auto">
+    <div className="py-12 flex flex-col gap-4 min-h-screen w-[80%] md:w-[70%] self-center lg:w-[90%] m-auto">
       <header className="flex gap-8 lg:justify-between">
         <Logo />
         <Navigation />
