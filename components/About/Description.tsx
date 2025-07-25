@@ -4,6 +4,9 @@ import DetailIcon from "@/public/icons/detail.svg";
 import InnovativeIcon from "@/public/icons/innovative.svg";
 
 function Description() {
+  const diff = Date.now() - new Date("2018-08-15T12:00:00");
+  const years = diff / (1000 * 60 * 60 * 24 * 365.25); // 365.25 accounts for leap years
+  const roundedYears = Math.floor(years);
   return (
     <>
       <h2 className={`relative pl-5 before:content-[''] before:h-full before:w-1 before:absolute before:left-0 before:bg-white text-2xl text-terminal-green mb-10`}>
@@ -12,7 +15,7 @@ function Description() {
       </h2>
       <p>
         I am a CSE graduate from the batch of 2014-18. I started out as a frontend dev working with ReactJS and Redux. Over the years, I&apos;ve worked with multiple technologies
-        including <strong>NextJS, NodeJS, Python and MongoDB</strong>. My strength lies in frontend with over 7 years of experience 🎯
+        including <strong>NextJS, NodeJS, Python and MongoDB</strong>. My strength lies in frontend with over {roundedYears} years of experience 🎯
       </p>
       <p>
         Thoroughout my stints at YML, Locus and Byjus', I have worked on a wide range of products and dashboards such as live tracking-enabled order management interfaces,
