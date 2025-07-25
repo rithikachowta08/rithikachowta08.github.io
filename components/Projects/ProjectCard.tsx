@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function ProjectCard({ data }) {
   return (
-    <Link href={data.url} className="flex flex-col gap-4 bg-zinc-800 rounded-md p-4 items-center" target="_blank">
+    <Link href={data.url} className="flex flex-col gap-4 bg-zinc-800 rounded-md px-4 py-8 items-center" target="_blank">
       <div className="w-full lg:w-[80%] relative h-[10vh]">
         {data.whiteBg ? (
           <div className="flex items-center relative h-full p-2 rounded-md bg-slate-100">
